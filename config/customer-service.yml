@@ -1,0 +1,73 @@
+server:
+  port: 6005
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://dev.dsp.com:3306/${db}?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      username: test
+      password: P@ssw0rd
+      driver-class-name: com.mysql.jdbc.Driver
+
+      initialSize: 10
+      minIdle: 5
+      maxActive: 100
+      maxWait: 60000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+
+      filter:
+        stat:
+          enabled: true
+        wall:
+          enabled: false
+          drop-table-allow: false
+  redis:
+    host: dev.dsp.com
+    port: 6379
+    password: 123456
+    timeout: 10000
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 1000
+
+rabbitmq:
+  host: dev.dsp.com
+  port: 5672
+  username: user
+  password: user
+  queue:
+    name:
+      publish: sogal_publish_queue
+  exchange:
+    name: hummer
+    type: fanout
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+#          这里将线程策略设置为SEMAPHORE，则Hystrix使用信号量而不是默认的线程池来做隔离。
+          strategy: SEMAPHORE
+feign:
+  hystrix:
+    enabled: true
+
+info:
+  developer:
+    name: wanglingxiao
+    email: zhihong.zhao@qq.com
+
+logging:
+  level:
+    com.sogal: DEBUG
+  file: .log/customer.log
+
+db: dspdb

@@ -1,0 +1,37 @@
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://mycat.server:3306/${db}?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      username: test
+      password: P@ssw0rd
+  redis:
+    host: redis.server
+    port: 16379
+    password: siderP@ssw0rd
+
+rabbitmq:
+  host: rabbitmq.server
+  port: 5672
+  username: user
+  password: user
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  
+temp:
+  file:
+    path: /RUNTIME/dsp/tempFile/
