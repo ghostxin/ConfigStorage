@@ -27,11 +27,13 @@ spring:
     port: 6379
     password: 123456
     timeout: 10000
+    database: 1
     pool:
       max-active: 10
       max-idle: 8
       min-idle: 2
       max-wait: 1000
+
 
 file:
   time:
@@ -45,5 +47,3 @@ logging:
   level:
     com.sogal: DEBUG
   file: .log/file.log
-
-db: dspdb
