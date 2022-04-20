@@ -1,0 +1,49 @@
+server:
+  port: 6001
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://dev.dsp.com:3306/${db}?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      username: test
+      password: P@ssw0rd
+      driver-class-name: com.mysql.jdbc.Driver
+      initialSize: 10
+      minIdle: 5
+      maxActive: 100
+      maxWait: 60000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      filter:
+        stat:
+          enabled: true
+        wall:
+          enabled: true
+          drop-table-allow: false
+  redis:
+    host: dev.dsp.com
+    port: 6379
+    password: 123456
+    timeout: 10000
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 1000
+
+file:
+  time:
+    pattern: yyyyMMdd
+  maxFileSize: 30MB
+  maxRequestSize: 30MB
+  image:
+    mimeType: 'image png tif jpg jpeg bmp'
+
+logging:
+  level:
+    com.sogal: DEBUG
+  file: .log/file.log
+
+db: dspdb
