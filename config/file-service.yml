@@ -4,6 +4,7 @@ server:
 spring:
   datasource:
     druid:
+      # url、username、password使用顶层一致配置，其他参数个服务控制微调
       url: jdbc:mysql://dev.dsp.com:3306/${db}?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
       username: test
       password: P@ssw0rd
