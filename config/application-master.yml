@@ -9,9 +9,9 @@ spring:
       username: root
       password: 123456
   redis:
-    host: redis.server
-    port: 16379
-    password: siderP@ssw0rd
+    host: 192.168.233.5
+    port: 6379
+    password: ardu2019
 
 rabbitmq:
   host: rabbitmq.server
